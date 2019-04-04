@@ -1,10 +1,8 @@
-# Ansible <!-- this role name --> role
+# Ansible services role
 
-This is an [Ansible](http://www.ansible.com) role which <!-- brief description of the role goes here -->.
+This is an [Ansible](http://www.ansible.com) role which  manages services through the service module.
 
 ## Requirements
-
-<!-- Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required. For example: -->
 
 [Ansible 2.7+](http://docs.ansible.com/ansible/latest/intro_installation.html)
 
