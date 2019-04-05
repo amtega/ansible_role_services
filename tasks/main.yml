@@ -4,37 +4,37 @@
 - name: Setup services
   service:
     arguments: >-
-      { services_service_item.arguments
+      {{ services_service_item.arguments
          | default(services_defaults.arguments)
-         | default(omit) }
+         | default(omit) }}
     enabled: >-
-      { services_service_item.enabled
+      {{ services_service_item.enabled
          | default(services_defaults.enabled)
-         | default(omit) }
+         | default(omit) }}
     name: >-
-      { services_service_item.name
+      {{ services_service_item.name
          | default(services_defaults.name)
-         | default(omit) }
+         | default(omit) }}
     pattern: >-
-      { services_service_item.pattern
+      {{ services_service_item.pattern
          | default(services_defaults.pattern)
-         | default(omit) }
+         | default(omit) }}
     runlevel: >-
-      { services_service_item.runlevel
+      {{ services_service_item.runlevel
          | default(services_defaults.runlevel)
-         | default(omit) }
+         | default(omit) }}
     sleep: >-
-      { services_service_item.sleep
+      {{ services_service_item.sleep
          | default(services_defaults.sleep)
-         | default(omit) }
+         | default(omit) }}
     state: >-
-      { services_service_item.state
+      {{ services_service_item.state
          | default(services_defaults.state)
-         | default(omit) }
+         | default(omit) }}
     use: >-
-      { services_service_item.use
+      {{ services_service_item.use
          | default(services_defaults.use)
-         | default(omit) }
+         | default(omit) }}
   loop: "{{ services_to_manage }}"
   loop_control:
     loop_var: services_service_item

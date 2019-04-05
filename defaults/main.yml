@@ -11,10 +11,6 @@
 
 services: []
 
-# Prefix to apply to all service configurations
-
-#services_prefix:
-
 # Dicitionary with the defaults options to use if no other ones are specified in
 # the `services` variable. The members of the dict are the same attributes
 # that the ones expected by the ansible service module

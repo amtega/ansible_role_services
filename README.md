@@ -24,13 +24,9 @@ This role don't provide any.
 
 The role provides these tests:
 
-- `thisrole_test1`: description of the test
-- `thisrole_test2`: description of the test
-- `thisrole_testN`: description of the test
+- `main.yml`: basic functionality test
 
 ## Dependencies
-
-<!-- A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles. For example: -->
 
 - [amtega.check_platform](https://galaxy.ansible.com/amtega/check_platform)
 - [amtega.select_hostvars](https://galaxy.ansible.com/amtega/select_hostvars)
