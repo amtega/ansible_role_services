@@ -24,7 +24,7 @@
       set_fact:
         services_extra:
           - name: foo2
-          - path: foo3
+          - name: foo3
   tags:
     - idempotence
 

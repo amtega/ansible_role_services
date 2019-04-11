@@ -1,6 +1,6 @@
 # Ansible services role
 
-This is an [Ansible](http://www.ansible.com) role which  manages services through the service module.
+This is an [Ansible](http://www.ansible.com) role which manages services through the service module.
 
 ## Requirements
 
