@@ -20,7 +20,7 @@ This is an example playbook:
         services:
           - name: postfix
           - name: httpd
-          
+
         services_defaults:
           state: started
 ```
@@ -49,3 +49,4 @@ This role is distributed in the hope that it will be useful, but WITHOUT ANY WAR
 ## Author Information
 
 - Daniel Sánchez Fábregas
+- Juan Antonio Valiño García
