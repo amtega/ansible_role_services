@@ -1,3 +1,6 @@
+---
+# Role dependencies
+
 galaxy_info:
   role_name: services
   author: Daniel Sánchez Fábregas
@@ -14,6 +17,7 @@ galaxy_info:
       versions:
         - 27
         - 28
+        - 29
   galaxy_tags:
     - system
     - services
@@ -34,7 +38,7 @@ dependencies:
         pattern: "^services_.*"
         exclude_pattern: "^services_defaults$"
         attributes:
-          - path
+          - name
         fact_name: services_hostvars
         output_type: list
     when: services_load_from_hostvars
