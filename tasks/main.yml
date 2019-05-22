@@ -1,48 +1,53 @@
 ---
 # Role tasks
 
-- name: Setup services
-  service:
-    arguments: >-
-      {{ services_service_item.arguments
-         | default(services_defaults.arguments)
-         | default(omit) }}
-    enabled: >-
-      {{ services_service_item.enabled
-         | default(services_defaults.enabled)
-         | default(omit) }}
-    name: >-
-      {{ services_service_item.name
-         | default(services_defaults.name)
-         | default(omit) }}
-    pattern: >-
-      {{ services_service_item.pattern
-         | default(services_defaults.pattern)
-         | default(omit) }}
-    runlevel: >-
-      {{ services_service_item.runlevel
-         | default(services_defaults.runlevel)
-         | default(omit) }}
-    sleep: >-
-      {{ services_service_item.sleep
-         | default(services_defaults.sleep)
-         | default(omit) }}
-    state: >-
-      {{ services_service_item.state
-         | default(services_defaults.state)
-         | default(omit) }}
-    use: >-
-      {{ services_service_item.use
-         | default(services_defaults.use)
-         | default(omit) }}
-  loop: "{{ services_to_manage }}"
-  loop_control:
-    loop_var: services_service_item
-    label: "{{ services_service_item.name }}"
-  vars:
-    services_to_manage: >-
-      {{ services
-         + ((services_load_from_hostvars)
-            | ternary(services_hostvars | default([]) | flatten, [])) }}
+- block:
+    - name: Gather services facts
+      service_facts:
+
+    - name: Setup services
+      service:
+        arguments: >-
+          {{ services_service_item.arguments
+             | default(services_defaults.arguments)
+             | default(omit) }}
+        enabled: >-
+          {{ services_service_item.enabled
+             | default(services_defaults.enabled)
+             | default(omit) }}
+        name: >-
+          {{ services_service_item.name
+             | default(services_defaults.name)
+             | default(omit) }}
+        pattern: >-
+          {{ services_service_item.pattern
+             | default(services_defaults.pattern)
+             | default(omit) }}
+        runlevel: >-
+          {{ services_service_item.runlevel
+             | default(services_defaults.runlevel)
+             | default(omit) }}
+        sleep: >-
+          {{ services_service_item.sleep
+             | default(services_defaults.sleep)
+             | default(omit) }}
+        state: >-
+          {{ services_service_item.state
+             | default(services_defaults.state)
+             | default(omit) }}
+        use: >-
+          {{ services_service_item.use
+             | default(services_defaults.use)
+             | default(omit) }}
+      when: services_service_item.name in ansible_facts.services.keys() | list
+      loop: "{{ services_to_manage }}"
+      loop_control:
+        loop_var: services_service_item
+        label: "{{ services_service_item.name }}"
+      vars:
+        services_to_manage: >-
+          {{ services
+             + ((services_load_from_hostvars)
+                | ternary(services_hostvars | default([]) | flatten, [])) }}
   tags:
     - role::services
