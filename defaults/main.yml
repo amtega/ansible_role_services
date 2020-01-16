@@ -4,12 +4,12 @@
 # List of dicts with services to configure. The dicts have the same attributes
 # that the ones expected by the ansible service module. For example:
 #
-# services:
+# services_list:
 #   - name: sshd
 #     state: started
 #     enabled: systems
 
-services: []
+services_list: []
 
 # Dicitionary with the defaults options to use if no other ones are specified in
 # the `services` variable. The members of the dict are the same attributes
@@ -18,7 +18,7 @@ services: []
 services_defaults: {}
 
 # Indicate `services` must be loaded also from host variables. Any host variable
-# that begins with "services_*" and contains the necessary attributes
+# that begins with "services_list_*" and contains the necessary attributes
 # will be loaded as an item to manage by the role. The variables must follow the
 # structure detailed before for `services`
 

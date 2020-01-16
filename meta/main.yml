@@ -7,7 +7,7 @@ galaxy_info:
   description: Manage services through the service module
   company: AMTEGA - Xunta de Galicia
   license: GPLv3 or EUPL
-  min_ansible_version: 2.7
+  min_ansible_version: 2.8
   platforms:
     - name: EL
       versions:
@@ -15,9 +15,8 @@ galaxy_info:
         - 7
     - name: Fedora
       versions:
-        - 27
-        - 28
         - 29
+        - 30
   galaxy_tags:
     - system
     - services
@@ -29,18 +28,14 @@ dependencies:
         centos: 6
         fedora: 27
         rhel: 6
-    tags:
-      - role::services
 
   - role: amtega.select_hostvars
     vars:
       select_hostvars_query:
-        pattern: "^services_.*"
+        pattern: "^services_list_.*"
         exclude_pattern: "^services_defaults$"
         attributes:
           - name
         fact_name: services_hostvars
         output_type: list
     when: services_load_from_hostvars
-    tags:
-      - role::services
