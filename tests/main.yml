@@ -68,7 +68,7 @@
           state: started
           enabled: yes
           services_load_from_hostvars: yes
-      include_role:
+      ansible.builtin.include_role:
         name: amtega.services
 
     - name: Populate service facts
