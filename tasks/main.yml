@@ -1,12 +1,12 @@
 ---
-# Role tasks
 
-- block:
+- name: Setup services
+  block:
     - name: Gather services facts
-      service_facts:
+      ansible.builtin.service_facts:
 
     - name: Setup services
-      service:
+      ansible.builtin.service:
         arguments: >-
           {{ services_service_item.arguments
              | default(services_defaults.arguments)
